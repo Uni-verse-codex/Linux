@@ -1,2 +1,3 @@
-# Linux-
-Documenting the whole process of learning Linux .
+# Linux Learning
+
+Documenting the whole process of learning Linux.
