@@ -5,7 +5,7 @@ a command-line system monitoring tool built from scratch, incrementally across 6
 
 Each phase adds one layer to the same project: filesystem analysis, log parsing, permissions auditing, process monitoring, network diagnostics, and full bash automation.
 
-Approach 
+# Approach 
 
 struggle-first, docs-only, no tutorials. 
 
