@@ -1,0 +1,24 @@
+# Anchor Project - Phase 1 
+
+DevGuardScan - scans a target directory and produces a full report: file count, total size, largest files, newest files, hidden files found.
+
+to be used as an alias . save this script in the .bashrc file.
+
+devguardscan(){
+    local input="$1"
+
+     if [[ -z "$input" || ! -d "$input" ]]; then
+        echo "Error: '$input' is not a valid directory path." >&2
+        return 1
+
+     fi
+        {
+           echo "file count is $(find "$input" -maxdepth 1 -type f  | wc -l)"
+           echo "Total Size for $1 is $(du -h --block-size=MB --max-depth 1 "$input" 2>/dev/null | tail -n 1 | awk '{print $1}')"
+           echo "Largest File is $(find "$input" -maxdepth 1 -type f -exec du -B KB {} + | grep -v "/$input/\." | sort -hr | head -n >
+           echo "Newest File is $(ls -t -p "$input" | grep -s -v / | head -n 1)"
+           echo "Total No of Hidden Files are $(find "$input" -type f -name ".*" 2>/dev/null | wc -l)"
+
+         } | tee -a /home/devansh/report.txt
+
+}
